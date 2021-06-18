@@ -16,9 +16,10 @@ class CreateTareasTable extends Migration
         Schema::create('tareas', function (Blueprint $table) {
             $table->id();
             $table->text('title');
-            $table->varchar('description');
-            $table->datetime('created_at');
-            $table->timestamp('updated_at');
+            $table->string('description');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();;
+            $table->boolean('completed')->default();
 
         });
     }
